@@ -1,4 +1,4 @@
-import 'package:decathlon_clone/components/DeCathlonScaffold.dart';
+import 'package:decathlon_clone/screens/Home.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -13,14 +13,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         accentColor: Color(0x505130),
       ),
-      home: MyHomePage(),
+      home: Home(),
     );
-  }
-}
-
-class MyHomePage extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return DeCathlonScaffold();
   }
 }

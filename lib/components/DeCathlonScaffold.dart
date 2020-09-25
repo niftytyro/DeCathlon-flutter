@@ -4,6 +4,10 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'CartClipper.dart';
 
 class DeCathlonScaffold extends StatelessWidget {
+  DeCathlonScaffold({this.body});
+
+  final Widget body;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -30,6 +34,7 @@ class DeCathlonScaffold extends StatelessWidget {
           ),
         ],
       ),
+      body: body,
     );
   }
 }
