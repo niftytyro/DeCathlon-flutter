@@ -1,4 +1,4 @@
-import 'package:decathlon_clone/screens/Home.dart';
+import 'package:decathlon_clone/screens/Home/Home.dart';
 import 'package:flutter/material.dart';
 
 void main() {
