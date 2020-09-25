@@ -14,6 +14,7 @@ class DeCathlonScaffold extends StatelessWidget {
       drawer: Drawer(),
       appBar: AppBar(
         backgroundColor: Colors.white,
+        elevation: 0.0,
         iconTheme: IconThemeData(color: Colors.black),
         title: Image.asset('assets/logo.png', height: kToolbarHeight),
         actions: [
@@ -34,7 +35,28 @@ class DeCathlonScaffold extends StatelessWidget {
           ),
         ],
       ),
-      body: body,
+      body: Column(
+        children: [
+          Container(
+            margin: EdgeInsets.all(5.0),
+            child: TextField(
+              decoration: InputDecoration(
+                enabledBorder: OutlineInputBorder(
+                  borderSide: BorderSide(
+                    color: Colors.grey,
+                    width: 2.0,
+                  ),
+                ),
+                contentPadding: EdgeInsets.all(5.0),
+                hintText: "Search 10k products, 80 sports",
+                hintStyle: TextStyle(color: Colors.grey, fontSize: 12.0),
+                suffixIcon: Icon(FontAwesomeIcons.search),
+              ),
+            ),
+          ),
+          body,
+        ],
+      ),
     );
   }
 }
