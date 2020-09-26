@@ -1,6 +1,9 @@
+import 'package:decathlon_clone/screens/catalog/Catalog.dart';
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:navigating_drawer/navigating_drawer.dart';
+
+import 'SideBarListTile.dart';
+import 'SideBarProfileSection.dart';
 
 class SideBar extends StatelessWidget {
   const SideBar({
@@ -14,21 +17,80 @@ class SideBar extends StatelessWidget {
       body: ListView(
         children: [
           ProfileSection(),
-          DrawerListTile(
+          SideBarListTile(
             title: "Bikes",
             subtitle: "Shop Now",
-            nextDrawerPage: Container(),
+            nextAppPage: Catalog(),
+            parentContext: context,
           ),
-          DrawerListTile(
+          SideBarListTile(
             title: "Shop All Sports",
             subtitle: "Cycling, Exercise...",
-            nextDrawerPage: Container(),
+            nextAppPage: Catalog(),
+            parentContext: context,
           ),
           SizedBox(height: 5.0),
-          DrawerListTile(
-            title: "Shop All Sports",
-            subtitle: "Cycling, Exercise...",
-            nextDrawerPage: Container(),
+          SideBarListTile(
+            title: "Bike",
+            subtitle: "Bikes, Bike Helmets...",
+            nextDrawerPage: BikesPage(parentContext: context),
+          ),
+          SideBarListTile(
+            title: "Hike & Camp",
+            subtitle: "Hiking Backpacks, Tents...",
+            nextDrawerPage: NavigatingDrawerPage(
+              body: Container(),
+            ),
+          ),
+          SideBarListTile(
+            title: "Exercise",
+            subtitle: "Fitness, Yoga & Studio...",
+            nextDrawerPage: NavigatingDrawerPage(
+              body: Container(),
+            ),
+          ),
+          SideBarListTile(
+            title: "Water",
+            subtitle: "Stand Up Paddle, Kayaking...",
+            nextDrawerPage: NavigatingDrawerPage(
+              body: Container(),
+            ),
+          ),
+          SizedBox(height: 5.0),
+          SideBarListTile(
+            title: "Women",
+            subtitle: "Women's Jackets, Women's Tops...",
+            nextDrawerPage: NavigatingDrawerPage(
+              body: Container(),
+            ),
+          ),
+          SideBarListTile(
+            title: "Men",
+            subtitle: "Men's Jackets, Men's Tops...",
+            nextDrawerPage: NavigatingDrawerPage(
+              body: Container(),
+            ),
+          ),
+          SideBarListTile(
+            title: "Kids",
+            subtitle: "Kid's Tops, Kid's Bottoms...",
+            nextDrawerPage: NavigatingDrawerPage(
+              body: Container(),
+            ),
+          ),
+          SizedBox(height: 5.0),
+          SideBarListTile(
+            title: "Sale",
+            subtitle: "All Sale, Men Sale...",
+            nextDrawerPage: NavigatingDrawerPage(
+              body: Container(),
+            ),
+          ),
+          SizedBox(height: 5.0),
+          SideBarListTile(
+            title: "A to Z Sports",
+            nextAppPage: Catalog(),
+            parentContext: context,
           ),
         ],
       ),
@@ -36,100 +98,50 @@ class SideBar extends StatelessWidget {
   }
 }
 
-class DrawerListTile extends StatelessWidget {
-  const DrawerListTile({
-    Key key,
-    this.subtitle,
-    this.title,
-    this.nextDrawerPage,
-    this.nextAppPage,
-  }) : super(key: key);
+class BikesPage extends StatelessWidget {
+  BikesPage({@required this.parentContext});
 
-  final TextStyle _titleStyle = const TextStyle(
-    fontSize: 15.0,
-    fontWeight: FontWeight.w700,
-    color: Color(0xFF343434),
-  );
-  final TextStyle _subtitleStyle = const TextStyle(
-    fontSize: 12.0,
-    color: Color(0xFF343434),
-  );
-  final EdgeInsets _tilePadding =
-      const EdgeInsets.fromLTRB(15.0, 15.0, 15.0, 0.0);
-  final String title;
-  final String subtitle;
-  final Widget nextDrawerPage;
-  final Widget nextAppPage;
+  final BuildContext parentContext;
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      color: Colors.white,
-      child: NavigatingDrawerListItem(
-        contentPadding: _tilePadding,
-        leading: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text(title, style: _titleStyle),
-            Text(subtitle, style: _subtitleStyle),
-          ],
-        ),
-        trailing: Icon(FontAwesomeIcons.chevronRight),
-        pushPage: nextDrawerPage,
-        onTap: () {
-          if (nextAppPage != null) {
-            Navigator.of(context).push(
-              MaterialPageRoute(
-                builder: (context) => nextAppPage,
-              ),
-            );
-          }
-        },
-      ),
-    );
-  }
-}
-
-class ProfileSection extends StatelessWidget {
-  const ProfileSection({
-    Key key,
-  }) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      padding: const EdgeInsets.fromLTRB(20.0, 20.0, 20.0, 20.0),
-      height: 80.0,
-      color: Colors.blue,
-      alignment: Alignment.bottomCenter,
-      child: Row(
+    return NavigatingDrawerPage(
+      body: ListView(
         children: [
-          Icon(
-            FontAwesomeIcons.user,
-            color: Colors.white,
-            size: 18.0,
+          SideBarListTile(
+            title: "Bikes",
+            subtitle: "Road Bikes, Folding Bikes...",
+            nextAppPage: Catalog(),
+            parentContext: parentContext,
           ),
-          SizedBox(width: 10.0),
-          Text(
-            "Welcome",
-            style: TextStyle(
-              color: Colors.white,
-              fontWeight: FontWeight.w300,
-            ),
+          SideBarListTile(
+            title: "Bike Helmets",
+            nextAppPage: Catalog(),
+            parentContext: parentContext,
           ),
-          Spacer(),
-          FlatButton(
-            onPressed: () {},
-            shape: BeveledRectangleBorder(
-              side: BorderSide(
-                color: Colors.white,
-                width: 0.75,
-              ),
-            ),
-            child: Text(
-              "SIGN IN",
-              style: TextStyle(color: Colors.white, fontSize: 12.0),
-            ),
+          SideBarListTile(
+            title: "Bike Clothing",
+            subtitle: "Jerseys, Jackets...",
+            nextAppPage: Catalog(),
+            parentContext: parentContext,
+          ),
+          SideBarListTile(
+            title: "Bike Shoes",
+            subtitle: "Shoes, Socks...",
+            nextAppPage: Catalog(),
+            parentContext: parentContext,
+          ),
+          SideBarListTile(
+            title: "Bike Accessories",
+            subtitle: "Locks, Lights...",
+            nextAppPage: Catalog(),
+            parentContext: parentContext,
+          ),
+          SideBarListTile(
+            title: "Bike Maintenance",
+            subtitle: "Tires, Tubes...",
+            nextAppPage: Catalog(),
+            parentContext: parentContext,
           ),
         ],
       ),
