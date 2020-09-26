@@ -12,6 +12,7 @@ class DeCathlonScaffold extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       resizeToAvoidBottomInset: false,
+      backgroundColor: Colors.white,
       drawer: SideBar(),
       appBar: AppBar(
         backgroundColor: Colors.white,
@@ -36,33 +37,35 @@ class DeCathlonScaffold extends StatelessWidget {
           ),
         ],
       ),
-      body: Column(
-        children: [
-          Container(
-            margin: EdgeInsets.all(5.0),
-            child: TextField(
-              decoration: InputDecoration(
-                enabledBorder: OutlineInputBorder(
-                  borderSide: BorderSide(
-                    color: Colors.grey,
-                    width: 2.0,
+      body: Container(
+        child: Column(
+          children: [
+            Container(
+              margin: EdgeInsets.all(5.0),
+              child: TextField(
+                decoration: InputDecoration(
+                  enabledBorder: OutlineInputBorder(
+                    borderSide: BorderSide(
+                      color: Colors.grey,
+                      width: 2.0,
+                    ),
                   ),
-                ),
-                focusedBorder: OutlineInputBorder(
-                  borderSide: BorderSide(
-                    color: Colors.blue,
-                    width: 2.0,
+                  focusedBorder: OutlineInputBorder(
+                    borderSide: BorderSide(
+                      color: Colors.blue,
+                      width: 2.0,
+                    ),
                   ),
+                  contentPadding: EdgeInsets.all(5.0),
+                  hintText: "Search 10k products, 80 sports",
+                  hintStyle: TextStyle(color: Colors.grey, fontSize: 12.0),
+                  suffixIcon: Icon(FontAwesomeIcons.search),
                 ),
-                contentPadding: EdgeInsets.all(5.0),
-                hintText: "Search 10k products, 80 sports",
-                hintStyle: TextStyle(color: Colors.grey, fontSize: 12.0),
-                suffixIcon: Icon(FontAwesomeIcons.search),
               ),
             ),
-          ),
-          body,
-        ],
+            Expanded(child: body),
+          ],
+        ),
       ),
     );
   }
