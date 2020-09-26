@@ -11,6 +11,7 @@ class DeCathlonScaffold extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       drawer: Drawer(),
       appBar: AppBar(
         backgroundColor: Colors.white,
@@ -44,6 +45,12 @@ class DeCathlonScaffold extends StatelessWidget {
                 enabledBorder: OutlineInputBorder(
                   borderSide: BorderSide(
                     color: Colors.grey,
+                    width: 2.0,
+                  ),
+                ),
+                focusedBorder: OutlineInputBorder(
+                  borderSide: BorderSide(
+                    color: Colors.blue,
                     width: 2.0,
                   ),
                 ),

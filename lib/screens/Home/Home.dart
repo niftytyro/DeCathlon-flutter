@@ -1,56 +1,26 @@
 import 'package:decathlon_clone/components/DeCathlonScaffold.dart';
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 import 'Carousel.dart';
+import 'FeaturesTabView.dart';
+import 'OnBoardSection.dart';
 
 class Home extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return DeCathlonScaffold(
-      body: Column(
-        children: [
-          Carousel(),
-          SizedBox(height: 20.0),
-          OnBoardSection(),
-        ],
+      body: Expanded(
+        child: Column(
+          mainAxisSize: MainAxisSize.max,
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Carousel(),
+            OnBoardSection(),
+            FeaturesTabView(),
+          ],
+        ),
       ),
-    );
-  }
-}
-
-class OnBoardSection extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Column(
-      children: [
-        Text(
-          "Free shipping over \$30",
-          style: TextStyle(
-            fontWeight: FontWeight.w700,
-            decoration: TextDecoration.underline,
-            decorationColor: Colors.yellow[700],
-            decorationThickness: 2.0,
-          ),
-        ),
-        SizedBox(height: 20.0),
-        FlatButton(
-          materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
-          onPressed: () {},
-          child: Text(
-            "SIGN IN",
-            style: TextStyle(fontSize: 10.0, color: Colors.white),
-          ),
-          color: Colors.blue[400],
-        ),
-        FlatButton(
-          materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
-          onPressed: () {},
-          child: Text(
-            'New account',
-            style: TextStyle(fontSize: 9.0, color: Colors.blue[400]),
-          ),
-        ),
-      ],
     );
   }
 }
