@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-
 import 'CartClipper.dart';
+import 'SideBar.dart';
 
 class DeCathlonScaffold extends StatelessWidget {
   DeCathlonScaffold({this.body});
@@ -12,7 +12,7 @@ class DeCathlonScaffold extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       resizeToAvoidBottomInset: false,
-      drawer: Drawer(),
+      drawer: SideBar(),
       appBar: AppBar(
         backgroundColor: Colors.white,
         elevation: 0.0,
